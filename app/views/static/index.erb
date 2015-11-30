@@ -1,15 +1,62 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
-<form action="/urls" method="post">
-		Enter URL:
-	<input type="text" name="long_url">
-	<input type="submit" value="Submit">
-</form>
+<body>
+  <div id="wrapper">
+
+<div style="text-align: center">
+	<img id="logo" src="img/sunset.jpg" alt="Backrub">
+</div>
+<p>Heaven or Las Vegas</p>
 
 
-<% @urls.each do |url| %>
-	<%=url.long_url%> -
-	<a href="<%=url.short_url%>">
-	<%= url.short_url %> 
-	</a><br>
-<%end%>		
+<div id="url-form">
+	<form action="/urls" method="POST">
+		<input type= "text" name= "long_url" placeholder = "Please enter"> 
+	<br/>
+	<br/>
+		<input type="submit" value= "Submit" class="btn">
+<!-- 		<input id="lucky" type="I'm feeling lucky" value= "submit"> -->
+	
+	</form>
+</div>
+<br/>
+
+<table class="zebra">
+<thead> 
+<tr id="zebra-header"> 
+	<th>No.</th> 
+    <th>Url</th> 
+    <th>Short Url</th> 
+    <th>Click Count</th> 
+</tr> 
+</thead> 
+<tbody> 
+	<% @urls.each_with_index do |url,count| %>
+		<tr> 
+		    <td><%= count + 1%></td> 
+		    <td><%= url.long_url %></td> 
+		    <td><a href=<%= url.short_url %>><%= url.short_url %><a> </td>
+			<td><%= url.click_count %></td>
+		</tr> 
+	<% end %>
+</tbody> 
+</table> 
+<br/>
+<br/>
+
+<div id="share_buttons" align="center">
+    <a href="http://www.facebook.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" title="Facebook" alt="Facebook"/></a>
+    <a href="https://twitter.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" title="Twitter" alt="Twitter"/></a>
+    <a href="http://www.pinterest.com">
+        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" title="Pinterest" alt="Pinterest"/></a>
+    <a href="http://www.reddit.com">
+        <img src="https://simplesharebuttons.com/images/somacro/reddit.png" title="Reddit" alt="Instagram"/></a>
+<br/>
+	Copyright © 2015 AA
+
+  </div>
+
+</body>
+
+
+	
