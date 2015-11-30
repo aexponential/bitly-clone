@@ -1,8 +1,10 @@
 body {
-font: normal msedium/1.2 Arial;
-background:url();
+font: normal medium/1.4 sans-serif;
+background:url(../img/magritte.jpg);
 background-repeat: no-repeat;
-background-position: center;}
+background-position: center;
+
+}
 
 table {
   border-collapse: collapse;
@@ -11,7 +13,7 @@ table {
 
 th, td {
   padding: 0.25rem;
-  text-align: centers;
+  text-align: left;
   border: 1px solid #ccc;
 }
 
@@ -20,7 +22,7 @@ tbody tr:nth-child(odd) {
 }
 
 #url-form {
-	text-align: center;
+  text-align: center;
 }
 
 #logo {
@@ -32,9 +34,10 @@ tbody tr:nth-child(odd) {
 }
 
 #wrapper {
-  width: 70%;      specify a width! 
-  margin: 0% auto; /s* center 
+  width: 70%;     /* specify a width! */
+  margin: 0% auto; /* center */
 }
+
 
 
 p  {
@@ -175,7 +178,7 @@ table.zebra thead th:first-child{
     border-top-left-radius: 14px;
 }
 
-#share_buttons img {
+#share-buttons img {
     width: 35px;
     padding: 5px;
     border: 0;

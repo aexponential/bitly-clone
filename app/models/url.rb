@@ -1,18 +1,19 @@
 
 class Url < ActiveRecord::Base
-  
-  validates :long_url, presence: true
-  validates :long_url, uniqueness: true
-  # validates :short_url, uniqueness:true
   before_create :shorten
-  
+  validates :short_url, uniqueness: true
+  validates :long_url, presence: true, format: { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}
+  # validates :url, :format => URI::regexp(%w(http https))
+
   def shorten
-		self.short_url=SecureRandom.hex(6)
+    self.short_url = SecureRandom.hex(6)
   end
-
-	def count
-		self.click_count +=1
-		self.save
-	end
-
+  # array = Array.new(8){ [*'0'..'9',*'A'..'Z',*'a'..'z'].sample }.join
+  # def catch
+  #   if self.class.valid?
+  #     raise self.errors.messages
+  #   else
+  #     redirect "/"
+  #   end
+  # end
 end
