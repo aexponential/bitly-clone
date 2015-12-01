@@ -1,6 +1,5 @@
 get '/' do
-  @urls = Url.all.order(click_count: :desc)
-  @urls.limit(10)
+  @urls = Url.first(10).sort_by{|e| -e[:click_count]}
   erb :"static/index"
 end
 
