@@ -1,5 +1,6 @@
 get '/' do
   @urls = Url.all.order(click_count: :desc)
+  @urls.limit(10)
   erb :"static/index"
 end
 
@@ -12,15 +13,15 @@ end
 
 post '/urls' do
 	url = Url.create(long_url: params[:long_url])
-	redirect "/"
 	# url.update(short_url: url.shorten)
 	# url.short_url = url.shorten
 	# url.save
+	"<tr><td>#{url.id}</td><td><a href='#{url.long_url}'>#{url.long_url}</a></td><td><a href='#{url.short_url}'>#{url.short_url}</a></td><td>#{url.click_count}</td></tr>"
 end
 
-get '/about_me' do
-	redirect "/"
-end
+# get '/about_me' do
+# 	redirect "/"
+# end
 
 get '/:short_url' do
 	url = Url.find_by(short_url: params[:short_url])
@@ -33,3 +34,5 @@ get '/:short_url' do
 		redirect "/"
 	end
 end
+
+

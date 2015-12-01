@@ -2,7 +2,7 @@
 class Url < ActiveRecord::Base
   before_create :shorten
   validates :short_url, uniqueness: true
-  validates :long_url, presence: true, format: { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}
+  validates :long_url, uniqueness:true, presence: true, format: { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}
   # validates :url, :format => URI::regexp(%w(http https))
 
   def shorten
